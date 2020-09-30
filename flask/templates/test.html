@@ -1,0 +1,90 @@
+<!doctypehtml>
+<html language ="ja">
+<head>
+	<title>{{title}}</title>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet", href="{{url_for('static',filename='style.css')}}">
+</head>
+<body>
+	<h1>Mリーグシミュレーター</h1>
+	<form method="post" action="/">
+		<select name="player1">
+			{% for i in member %}
+			<option> {{i}} </option>
+			{% endfor %}
+		</select>
+		<select name="player2">
+			{% for i in member %}
+			<option> {{i}} </option>
+			{% endfor %}
+		</select>
+		<select name="player3">
+			{% for i in member %}
+			<option> {{i}} </option>
+			{% endfor %}
+		</select>
+		<select name="player4">
+			{% for i in member %}
+			<option> {{i}} </option>
+			{% endfor %}
+		</select>
+		<input type="number" name="k-value" value="1" min="1">
+		<input type="submit">
+	</form>
+	<div class="expect">
+		<table border="2">
+			<tr>
+				<th></th>
+				<th>{{player1}}</th>
+				<th>{{player2}}</th>
+				<th>{{player3}}</th>
+				<th>{{player4}}</th>
+			</tr>
+			<tr>
+				<td>1着率</td>
+				<td>{{player1_1}}</td>
+				<td>{{player2_1}}</td>
+				<td>{{player3_1}}</td>
+				<td>{{player4_1}}</td>
+			</tr>
+			<tr>
+				<td>2着率</td>
+				<td>{{player1_2}}</td>
+				<td>{{player2_2}}</td>
+				<td>{{player3_2}}</td>
+				<td>{{player4_2}}</td>
+			</tr>
+			<tr>
+				<td>3着率</td>
+				<td>{{player1_3}}</td>
+				<td>{{player2_3}}</td>
+				<td>{{player3_3}}</td>
+				<td>{{player4_3}}</td>
+			</tr>
+			<tr>
+				<td>4着率</td>
+				<td>{{player1_4}}</td>
+				<td>{{player2_4}}</td>
+				<td>{{player3_4}}</td>
+				<td>{{player4_4}}</td>
+			</tr>
+			<tr>
+				<td>平均着順</td>
+				<td>{{player1_expe}}</td>
+				<td>{{player2_expe}}</td>
+				<td>{{player3_expe}}</td>
+				<td>{{player4_expe}}</td>
+			</tr>
+	</div>
+	<div class="rate">
+		<ul>
+			{% for player, j in sorted_rate %}
+			
+			<li>{{player}} : {{j}}</li>
+			
+			{% endfor %}
+		</ul>
+
+	</div>
+</body>
+</html>
